@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Lokachop's Website</title>
+
+		<!-- Inter font -->
+		<link rel="preconnect" href="https://rsms.me/">
+		<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
+		<!-- Style -->
+		<link href="/style.css" rel="stylesheet" type="text/css" media="all">
+
+		<!-- Favicon -->
+		<link rel="icon" type="image/x-icon" href="/favicon.ico">
+	</head>
+
+
+	<body>
+		<div class="navbar">
+			<a href="/index.html">Index</a>
+			<a href="/about.html">About</a>
+			<a href="/projects.html" class="active">Projects</a>
+			<a href="/blog.html">Blog</a>
+		</div>
+	
+		<div class="box">
+			<div class="projecttitlecard">
+				<img src="/projects/mobile_mechsuit/mobilemechsuit_img.png" alt="The Mobile Mechsuit logo">
+				<span>Mobile Mechsuit: LÖVE Jam 2024 entry</span>
+				<br>
+				<span class="releasedate">Released on: <time datetime="25-02-2024 19:02:45">25/02/2024</time></span>
+				<br>
+				<span class="releasedate">Last Update: <time datetime="25-02-2024 23:34:20">25/02/2024</time></span>
+			</div>
+			<hr style="height: 16px; visibility: hidden;">
+			<hr>
+
+			<div>
+				<h2 class="questionheader">What is Mobile Mechsuit?</h2>
+				<p>
+					Mobile Mechsuit is my <i class="smallitalic">bad</i> entry to the <a href="https://itch.io/jam/love2d-jam-2024">LÖVE Jam 2024</a>, which utilizes LvLK3D, my LÖVE2D 3D library
+					<br>
+					It is a mediocre game about piloting a mech on fancy levels, with fancy <i class="smallitalic">albeit laggy</i> 3D graphics for a 2D framework
+				</p>
+
+				<h2 class="questionheader">What do you do in Mobile Mechsuit?</h2>
+				<p>
+					In Mobile Mechsuit, you pilot a mech through a facility in an attempt to cool the overheating nuclear reactor
+					<br>
+					The gameplay boils down to writing movement commands into a computer terminal, while checking a camera
+				</p>
+
+				<h2 class="questionheader">Can i see screenshots?</h2>
+				<p>
+					Yes!
+				</p>
+			</div>
+		</div>
+
+		<div class="horzscroller">
+			<img src="./screenies/mobilemechsuit_1.png" alt="Main Menu for Mobile Mechsuit" width="960" height="540">
+			<img src="./screenies/mobilemechsuit_2.png" alt="Terminal inside the mech" width="960" height="540">
+			<img src="./screenies/mobilemechsuit_3.png" alt="Window view to the outside from the mech" width="960" height="540">
+			<img src="./screenies/mobilemechsuit_4.png" alt="Camera view in the mech" width="960" height="540">
+			<img src="./screenies/mobilemechsuit_5.png" alt="Dev Editor: Level 3" width="960" height="540">
+			<img src="./screenies/mobilemechsuit_6.png" alt="Dev Editor: Level 1" width="960" height="540">
+		</div>
+
+		<div>
+			<div class="box">
+				<h2 class="questionheader">Where can i find a download?</h2>
+				<p>
+					You can download it from <a href="https://lokachop.itch.io/mobile-mechsuit">itch.io</a>
+					<br>
+					As with most of my projects, the source code is available on <a href="https://github.com/lokachop/Mobile-MechSuit">GitHub</a>
+				</p>
+			</div>
+		</div>
+
+		<footer include="/template/footer.html" data-type="text/html"></footer>
+		<script src="/lib/include/htmlinclude.js" data-type="text/html"></script>
+	</body>
+
+</html>

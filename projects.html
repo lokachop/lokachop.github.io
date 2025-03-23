@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Lokachop's Website</title>
+
+		<!-- Inter font -->
+		<link rel="preconnect" href="https://rsms.me/">
+		<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
+		<!-- Style -->
+		<link href="/style.css" rel="stylesheet" type="text/css" media="all">
+
+		<!-- Favicon -->
+		<link rel="icon" type="image/x-icon" href="/favicon.ico">
+	</head>
+
+
+	<body>
+		<div class="navbar">
+			<a href="/index.html">Index</a>
+			<a href="/about.html">About</a>
+			<a href="/projects.html" class="active">Projects</a>
+			<a href="/blog.html">Blog</a>
+		</div>
+	
+		<div>
+			<div class="projectcard">
+				<a href="/projects/zvox/zvox.html" class="undecorated">
+					<p>
+						<img src="/projects/zvox/zvox_img.png" alt="A voxel world, running under GMod">
+						<span class="header">ZVox: GMod Voxel Engine</span>
+						<br>
+						<br>
+						<span class="subtext">
+							GMod voxel engine that attempts to mimic ClassiCube
+							<br>
+							Runs on a separate world, and avoids the work of not doing so
+						</span>
+					</p>
+				</a>
+			</div>
+			
+			<div class="projectcard">
+				<a href="/projects/mobile_mechsuit/mobile_mechsuit.html" class="undecorated">
+					<p>
+						<img src="/projects/mobile_mechsuit/mobilemechsuit_img.png" alt="The Mobile Mechsuit logo">
+						<span class="header">Mobile Mechsuit: LÖVE Jam 2024 entry</span>
+						<br>
+						<br>
+						<span class="subtext">
+							Entry to the LÖVE Jam 2024
+							<br>
+							Sub-par gameplay with fancy graphics and a neat level editor
+						</span>
+					</p>
+				</a>
+			</div>
+			
+			<div class="projectcard">
+				<a href="/projects/lk3d/lk3d.html" class="undecorated">
+					<p>
+						<img src="/projects/lk3d/lk3d_img.png" alt="The LK3D logo, with a blurred lightmaped cornell box behind it">
+						<span class="header">LK3D: GMod Rendering Library</span>
+						<br>
+						<br>
+						<span class="subtext">
+							A rendering library for GMod designed towards full gamemodes
+							<br>
+							Allows <i class="smallitalic">stylized</i> early-3D graphics with minimal effort, along with advanced features
+						</span>
+					</p>
+				</a>
+			</div>
+		</div>
+
+		<footer include="/template/footer.html" data-type="text/html"></footer>
+		<script src="/lib/include/htmlinclude.js" data-type="text/html"></script>
+	</body>
+
+</html>

@@ -4,10 +4,48 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Lokachop's Website</title>
+
+		<!-- Inter font -->
+		<link rel="preconnect" href="https://rsms.me/">
+		<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
+		<!-- Style -->
+		<link href="/style.css" rel="stylesheet" type="text/css" media="all">
+
+		<!-- Favicon -->
+		<link rel="icon" type="image/x-icon" href="/favicon.ico">
 	</head>
 
 
 	<body>
-		<h1>Is this on?</h1>
+		<div class="navbar">
+			<a href="/index.html" class="active">Index</a>
+			<a href="/about.html">About</a>
+			<a href="/projects.html">Projects</a>
+			<a href="/blog.html">Blog</a>
+		</div>
+	
+		<div class="box">
+			<h2 class="questionheader">What is this?</h2>
+			<p>
+				This is my own site, It holds various useful links and my own <i class="smallitalic">rarely updated</i> <a href="/blog.html">blog</a>!
+				<br>
+				If you want to know more about who the hell even am I, please consider checking out the <a href="/about.html">About</a> page!
+				<br>
+				And if you wish to see my work, please head to the <a href="/projects.html">Projects</a> page!
+			</p>
+
+			<h2 class="questionheader">Why did you even create this?</h2>
+			<p>
+				I feel like this website serves as a good hub for my work among other things, it is also a fun project to learn web development, even if the appearance isn't the best
+				<br>
+				I also find it nice to write stuff from time to time on the <a href="/blog.html">Blog</a>
+			</p>
+		</div>
+
+
+		<footer include="/template/footer.html" data-type="text/html"></footer>
+		<script src="/lib/include/htmlinclude.js" data-type="text/html"></script>
 	</body>
+
 </html>

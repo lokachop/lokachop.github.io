@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Lokachop's Website</title>
+
+		<!-- Inter font -->
+		<link rel="preconnect" href="https://rsms.me/">
+		<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
+		<!-- Style -->
+		<link href="/style.css" rel="stylesheet" type="text/css" media="all">
+
+		<!-- Favicon -->
+		<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+		<!-- Prism (Syntax Highlighter) -->
+		<link href="/lib/prism/prism.css" rel="stylesheet" />
+	</head>
+
+
+	<body>
+		<div class="navbar">
+			<a href="/index.html">Index</a>
+			<a href="/about.html">About</a>
+			<a href="/projects.html" class="active">Projects</a>
+			<a href="/blog.html">Blog</a>
+		</div>
+	
+		<div class="box">
+			<div class="projecttitlecard">
+				<img src="/projects/lk3d/lk3d_img.png" alt="The LK3D logo, with a blurred lightmaped cornell box behind it">
+				<span>LK3D: GMod Rendering Library</span>
+				<br>
+				<span class="releasedate">Released on: <time datetime="27-01-2023">27/01/2023</time> (Mandrill Maze)</span>
+				<br>
+				<span class="releasedate">Last Update: <time datetime="24-07-2024">24/07/2024</time></span>
+			</div>
+			<hr style="height: 16px; visibility: hidden;">
+
+			<hr>
+
+			<div>
+				<h2 class="questionheader">What is LK3D?</h2>
+				<p>
+					LK3D is a <i class="smallitalic">sub-par</i> GMod rendering library, which is abstracted from the normal world
+					<br>
+					With it, you can render way more interesting graphics without needing to fiddle with Mesh objects
+				</p>
+				<h2 class="questionheader">Have you used it for anything?</h2>
+				<p>
+					Currently, the only released project which uses LK3D is <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2924368436">Mandrill Maze</a>
+					<br>
+					Including unreleased / unfinished projects, it is used for Deep Dive and Point Of No Return
+				</p>
+				<h2 class="questionheader">What makes LK3D unique?</h2>		
+				<p>
+					The only thing that makes LK3D unique is how distinct it is from the stock GMod rendering	
+					<br>
+					The plethora of extra features also contribute to it, aslong with it's capacity to create procedural textures, <i class="smallitalic">albeit a bit broken currently</i>
+				</p>
+				<h2 class="questionheader">Can i see a snippet of LK3D code?</h2>
+				<p>
+					Sure! Here's an example of a simple scene being drawn to an RT!
+				</p>
+	
+<pre style="font-size: 16px;" class="line-numbers"><code class="language-lua">-- Basic LK3D render to RT
+-- This assumes LK3D was already loaded
+
+-- Create the universe
+local univGame = LK3D.NewUniverse("universe_LK3DBasic")
+
+-- we push the universe to add stuff to it
+LK3D.PushUniverse(univGame)
+	-- we add a cube and set a few parameters
+	LK3D.AddObjectToUniverse("cube", "cube_nuv")
+	LK3D.SetObjectPosAng("cube", Vector(0, 0, 0), Angle(0, 0, 0))
+	LK3D.SetObjectScale("cube", Vector(1, 1, 1))
+	LK3D.SetObjectMat("cube", "checker")
+	LK3D.SetObjectFlag("cube", "NO_SHADING", false)
+	LK3D.SetObjectFlag("cube", "NO_LIGHTING", true)
+	LK3D.SetObjectFlag("cube", "CONSTANT", true)
+LK3D.PopUniverse()
+
+-- now draw
+
+-- make the RT we want to draw to
+local rtRender = GetRenderTarget("RTRender_LK3DBasic", 512, 512)
+
+
+-- set up renderer
+LK3D.SetCamFOV(90)
+LK3D.SetRenderer(LK3D_RENDER_HARD)
+LK3D.SetCamPos(Vector(-4, 0, 0)) -- Move the camera back so we can see the cube
+
+LK3D.PushUniverse(univGame) -- push the universe we want to render 
+LK3D.PushRenderTarget(rtRender) -- push the RT we want to render to
+	LK3D.RenderClear(32, 64, 96) -- clear to a nice colour, also clearing depth
+	LK3D.RenderActiveUniverse() -- render
+LK3D.PopRenderTarget() -- pop all previously pushed
+LK3D.PopUniverse()</code></pre>
+
+				<h2 class="questionheader">Can i see screenshots?</h2>
+				<p>
+					Yes! These are taken from various LK3D gamemodes
+				</p>
+			</div>
+		</div>
+
+
+		<div class="horzscroller">
+			<img src="./screenies/mm_1.png" alt="The mandrill maze" width="960" height="540">
+			<img src="./screenies/dd_1.png" alt="Deep Dive, Wall spray painted" width="960" height="540">
+			<img src="./screenies/dd_2.png" alt="Deep Dive, View of the control panel" width="960" height="540">
+			<img src="./screenies/ponr_1.png" alt="Point Of No Return, A cornell box" width="960" height="540">
+			<img src="./screenies/ponr_2.png" alt="Point Of No Return, The main menu" width="960" height="540">
+			<img src="./screenies/ponr_3.png" alt="Point Of No Return, The wrong map snow road" width="960" height="540">
+		</div>
+
+		<div>
+			<div class="box">
+				<h2 class="questionheader">Where can i find a download?</h2>
+				<p>
+					You can download the source code on <a href="https://github.com/lokachop/LK3D">GitHub</a>
+					<br>
+					Currently, the only released gamemode that uses LK3D is <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2924368436">Mandrill Maze</a>
+
+				</p>
+			</div>
+		</div>
+
+
+		<footer include="/template/footer.html" data-type="text/html"></footer>
+		<script src="/lib/include/htmlinclude.js" data-type="text/html"></script>
+		<script src="/lib/prism/prism.js"></script>
+	</body>
+
+</html>

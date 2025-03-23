@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Lokachop's Website</title>
+
+		<!-- Inter font -->
+		<link rel="preconnect" href="https://rsms.me/">
+		<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
+		<!-- Style -->
+		<link href="/style.css" rel="stylesheet" type="text/css" media="all">
+
+		<!-- Favicon -->
+		<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+		<!-- Prism (Syntax Highlighter) -->
+		<link href="/lib/prism/prism.css" rel="stylesheet" />
+	</head>
+
+
+	<body>
+		<div class="navbar">
+			<a href="/index.html">Index</a>
+			<a href="/about.html">About</a>
+			<a href="/projects.html">Projects</a>
+			<a href="/blog.html" class="active">Blog</a>
+		</div>
+	
+		<div class="box">
+			<div class="blogtitlecard">
+				<span>Blog Template</span>
+				<br>
+				<span class="releasedate"><time datetime="07-12-2024 18:28:00">07/12/2024</time></span>
+				<br>
+			</div>
+			<hr style="height: 16px; visibility: hidden;">
+			<hr>
+
+			<div>
+				<p>
+					My oh-so-awesome blog
+					<br>
+					This is a test to see what a blog page could look like
+					<br> Here, look at some random lua!
+				
+<pre style="font-size: 16px;" class="line-numbers"><code class="language-lua">-- Gravel texture procedurally generated
+ZVox.NewTexturePixelFunc("gravel", function(x, y)
+	local spx = ZVox.Simplex2D(x, y)
+	spx = (spx + 1) * .5
+
+	local val = 64 + (spx * 140)
+	local valR = val + (math.random() * 16)
+
+	return valR, val, val
+end)</code></pre>
+					Isn't it neat?
+					<br>
+					Well, i think it is...
+					<br>
+					Let's look at a different category
+					
+					<h2 class="questionheader">How hard is it to load a ZVox world?</h2>
+					<p>
+						It is surprisingly easy!
+						<br>
+						All you really need to do is call <code class="language-lua" style="font-size: 16px;">ZVox.LoadUniverse("loadName", "loadUniverseTarget")</code>!
+						<br>
+						ZVox will handle the rest, although there's no way to unload universes currently! <i class="smallitalic">i should add that...</i>
+					</p>
+					Fun!
+					<br>
+					This marks the end of this text blog and my yappathon
+					<br>
+					Hope you had fun reading whatever the fuck this was
+				</p>
+			</div>
+		</div>
+
+
+
+		<footer include="/template/footer.html" data-type="text/html"></footer>
+		<script src="/lib/include/htmlinclude.js" data-type="text/html"></script>
+		<script src="/lib/prism/prism.js"></script>
+	</body>
+
+</html>

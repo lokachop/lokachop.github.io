@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Lokachop's Website</title>
+
+		<!-- Inter font -->
+		<link rel="preconnect" href="https://rsms.me/">
+		<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
+		<!-- Style -->
+		<link href="/style.css" rel="stylesheet" type="text/css" media="all">
+
+		<!-- Favicon -->
+		<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+		<!-- Prism (Syntax Highlighter) -->
+		<link href="/lib/prism/prism.css" rel="stylesheet" />
+	</head>
+
+
+	<body>
+		<div class="navbar">
+			<a href="/index.html">Index</a>
+			<a href="/about.html">About</a>
+			<a href="/projects.html">Projects</a>
+			<a href="/blog.html" class="active">Blog</a>
+		</div>
+	
+		<div class="box">
+			<div class="blogtitlecard">
+				<span>About the Blog</span>
+				<br>
+				<span class="releasedate"><time datetime="08-12-2024 15:56:00">08/12/2024</time></span>
+				<br>
+			</div>
+			<hr style="height: 16px; visibility: hidden;">
+			<hr>
+
+			<div class="box">
+				<p>
+					Welcome to the blog!
+					<br>
+					I am still not too certain as to what i will place here, but i guess it will serve as a small place for my <i class="smallitalic">stupid</i> thoughts
+					<br>
+					There isn't really anything too fancy on this, it is just static HTML/CSS although i've added <a href="https://prismjs.com/">Prism</a> for syntax highlighting and it is quite cool!
+					<br>
+					Here is an example of a use of it:
+<pre style="font-size: 16px;" class="line-numbers"><code class="language-lua">-- The ZVox gold side texture
+local sideGradGold = {
+	{["e"] =  0, ["c"] = Color(198, 164, 38)}, -- e marks where it ends, lerps from the previous value
+	{["e"] =  .45, ["c"] = Color(204, 202, 88)},
+	{["e"] =  .65, ["c"] = Color(175, 103, 18)},
+	{["e"] =  1, ["c"] = Color(157, 82, 20)},
+}
+ZVox.NewTexturePixelFunc("gold_side", function(x, y)
+	local yc = y
+
+	local nsAdd = ZVox.Simplex2D(x * .1, 73476)
+	nsAdd = (nsAdd + 1) * .5
+	nsAdd = nsAdd * 2
+
+	yc = (yc + nsAdd)
+
+
+	local yD = yc / 16
+	yD = math.min(yD, 1)
+
+
+	local cR, cG, cB = ZVox.GetColorAtGradientPoint(yD, sideGradGold)
+
+	return cR, cG, cB
+end)</code></pre>
+					Other than this, don't expect too much from this blog, it will probably me writing random shit and or complaining about random stuff
+				</p>
+			</div>
+		</div>
+
+
+
+		<footer include="/template/footer.html" data-type="text/html"></footer>
+		<script src="/lib/include/htmlinclude.js" data-type="text/html"></script>
+		<script src="/lib/prism/prism.js"></script>
+	</body>
+
+</html>

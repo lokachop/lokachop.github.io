@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Lokachop's Website</title>
+
+		<!-- Inter font -->
+		<link rel="preconnect" href="https://rsms.me/">
+		<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
+		<!-- Style -->
+		<link href="/style.css" rel="stylesheet" type="text/css" media="all">
+
+		<!-- Favicon -->
+		<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+		<!-- Prism (Syntax Highlighter) -->
+		<link href="/lib/prism/prism.css" rel="stylesheet" />
+	</head>
+
+
+	<body>
+		<div class="navbar">
+			<a href="/index.html">Index</a>
+			<a href="/about.html">About</a>
+			<a href="/projects.html" class="active">Projects</a>
+			<a href="/blog.html">Blog</a>
+		</div>
+	
+		<div class="box">
+			<div class="projecttitlecard" >
+				<img src="/projects/zvox/zvox_img.png" alt="The ZVox logo">
+				<span>ZVox: GMod Voxel Engine</span>
+				<br>
+				<span class="releasedate">Released on: TBD</span>
+				<br>
+				<!--<time datetime="01-11-2024 23:34:20">01/11/2024</time>-->
+				<span class="releasedate">Last Update: TBD</span>
+			</div>
+			<hr style="height: 16px; visibility: hidden;">
+			<hr>
+
+			<div>
+				<h2 class="questionheader">What is ZVox?</h2>
+				<p>
+					ZVox is my attempt at a voxel engine running under GMod
+					<br>
+					Unlike YAVA or Voxyllabus, it runs on a separate world, rather than integrating into the source one
+					<br>
+					Another notable feature is all of the textures being procedurally generated <i class="smallitalic">(example below)</i>
+
+<pre style="font-size: 16px;" class="line-numbers"><code class="language-lua">-- Gravel texture procedurally generated
+ZVox.NewTexturePixelFunc("gravel", function(x, y)
+	local spx = ZVox.Simplex2D(x, y)
+	spx = (spx + 1) * .5
+
+	local val = 64 + (spx * 140)
+	local valR = val + (math.random() * 16)
+
+	return valR, val, val
+end)</code></pre>
+				</p>
+
+				<h2 class="questionheader">What can you do in ZVox?</h2>
+				<p>
+					You can build using various types of voxels
+					<br>
+					It behaves pretty similar to something like <a href="https://www.classicube.net/">ClassiCube</a> which in turn behaves like Minecraft Classic
+					<br>
+					It also has multi-universe support, allowing more than 1 world per server
+				</p>
+
+				<h2 class="questionheader">Can i see screenshots?</h2>
+				<p>
+					Yes!
+				</p>
+			</div>
+		</div>
+
+		<div class="horzscroller">
+			<img src="./screenies/zvox_1.png" alt="Screenshot 1" width="960" height="540">
+			<img src="./screenies/zvox_2.png" alt="Screenshot 2" width="960" height="540">
+			<img src="./screenies/zvox_3.png" alt="Screenshot 3" width="960" height="540">
+			<img src="./screenies/zvox_4.png" alt="Screenshot 4" width="960" height="540">
+		</div>
+
+		<div>
+			<div class="box">
+				<h2 class="questionheader">Where can i find a download?</h2>
+				<p>
+					ZVox is currently undergoing development and as such, there is no public release at the moment
+					<br>
+					Once it is released into the workshop, the source code will be released too, it will be licensed under the AGPL3 license
+				</p>
+			</div>
+		</div>
+
+		<footer include="/template/footer.html" data-type="text/html"></footer>
+		<script src="/lib/include/htmlinclude.js" data-type="text/html"></script>
+		<script src="/lib/prism/prism.js"></script>
+	</body>
+
+</html>

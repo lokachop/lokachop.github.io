@@ -1,0 +1,406 @@
+body {
+	margin: 0;
+	font-family: 'InterVariable';
+	font-size: 22px;
+
+	background-color: rgb(30, 30, 30);
+	color: rgb(240, 240, 240);
+
+	min-height: 100vh;
+	margin: 0;
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+}
+
+a {
+	color: rgb(60, 180, 80)
+}
+
+.undecorated {
+	text-decoration: none;
+}
+
+.center {
+	text-align: center;
+}
+
+.smallitalic {
+	color: rgb(120, 120, 120);
+	font-size: 16px;
+}
+
+
+.questionheader {
+	color: rgb(140, 140, 140);
+	font-style: italic;
+}
+
+
+
+/* gracefully stolen from https://www.w3schools.com/howto/howto_js_topnav.asp */
+.navbar {
+	overflow: hidden;
+	background-color: rgb(40, 40, 40);
+	
+	/* centering :( */
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+}
+
+@keyframes nav_hover_in {
+	from {
+		background-color: rgb(40, 40, 40);
+	}
+	to {
+		background-color: rgb(30, 90, 40);
+	}
+}
+
+@keyframes nav_hover_out {
+	from {
+		background-color: rgb(30, 90, 40);
+	}
+	to {
+		background-color: rgb(40, 40, 40);
+	}
+}
+
+.navbar a {
+	float: left;
+	color: rgb(255, 255, 255);
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+
+	animation-name: nav_hover_out;
+	animation-duration: 0.25s;
+}
+
+.navbar a:hover {
+	background-color: rgb(30, 90, 40);
+	color: white;
+
+	animation-name: nav_hover_in;
+	animation-duration: 0.25s;
+}
+
+@keyframes nav_hover_active_in {
+	from {
+		background-color: rgb(60, 180, 80);
+	}
+	to {
+		background-color: rgb(80, 200, 100);
+	}
+}
+
+@keyframes nav_hover_active_out {
+	from {
+		background-color: rgb(80, 200, 100);
+	}
+	to {
+		background-color: rgb(60, 180, 80);
+	}
+}
+
+.navbar a.active {
+	background-color: rgb(60, 180, 80);
+	color: white;
+
+	animation-name: nav_hover_active_out;
+	animation-duration: 0.25s;
+}
+
+.navbar a.active:hover {
+	background-color: rgb(80, 200, 100);
+	color: white;
+
+	animation-name: nav_hover_active_in;
+	animation-duration: 0.25s;
+}
+
+
+footer {
+	overflow: hidden;
+	background-color: rgb(25, 25, 25);
+	
+	min-height: 24px;
+	width: 100%;
+	text-align: center;
+}
+
+footer p {
+	font-size: 12px;
+	color: rgb(120, 120, 120);
+}
+
+footer a {
+	font-size: 12px;
+	color: rgb(80, 80, 80);
+}
+
+
+
+
+.projectcard {
+	background-color: rgb(55, 55, 55);
+	width: 1024px;
+	height: 160px;
+
+	margin: 0 auto;
+
+	margin-bottom: 16px;
+}
+
+.projectcard img {
+	float: left;
+	width: 128px;
+	height: 128px;
+	margin-right: 16px;
+}
+
+.projectcard p {
+	padding-left: 16px;
+	padding-top: 16px;
+}
+
+.projectcard .header {
+	color: rgb(255, 255, 255);
+	
+	font-weight: bold;
+	font-size: 36px;
+}
+
+.projectcard .subtext {
+	color: rgb(160, 160, 160);
+	font-size: 20px;
+}
+
+
+.projecttitlecard {
+	padding-left: 16px;
+	padding-top: 16px;
+}
+
+.projecttitlecard img {
+	float: left;
+}
+
+.projecttitlecard span {
+	color: rgb(255, 255, 255);
+	
+	font-weight: bold;
+	font-size: 36px;
+	margin-left: 16px;
+}
+
+.projecttitlecard .releasedate {
+	color: rgb(180, 180, 180);
+	
+	font-weight: normal;
+	font-size: 26px;
+	margin-left: 16px;
+}
+
+/* Stoeln from https://www.w3schools.com/howto/howto_css_image_gallery_scroll.asp */
+.horzscroller {
+	background-color: rgb(40, 40, 40);
+	overflow: auto;
+	white-space: nowrap;
+	padding: 8px;
+}
+
+.horzscroller img {
+	padding: 8px;
+}
+
+
+
+.blogcard {
+	background-color: rgb(55, 55, 55);
+	width: 1024px;
+	height: 128px;
+
+	margin: 0 auto;
+
+	margin-bottom: 16px;
+}
+
+.blogcard img {
+	float: left;
+	width: 128px;
+	height: 128px;
+	margin-right: 16px;
+}
+
+.blogcard p {
+	padding-left: 16px;
+	padding-top: 16px;
+}
+
+.blogcard .header {
+	color: rgb(255, 255, 255);
+	
+	font-weight: bold;
+	font-size: 36px;
+}
+
+.blogcard .subtext {
+	color: rgb(160, 160, 160);
+	font-size: 20px;
+}
+
+.blogcard .releasedate {
+	color: rgb(120, 120, 120);
+	
+	font-weight: normal;
+	font-size: 16px;
+}
+
+
+.blogtitlecard {
+	padding-top: 16px;
+}
+
+.blogtitlecard img {
+	float: left;
+}
+
+.blogtitlecard span {
+	color: rgb(255, 255, 255);
+	
+	font-weight: bold;
+	font-size: 36px;
+	margin-left: 16px;
+}
+
+.blogtitlecard .releasedate {
+	color: rgb(120, 120, 120);
+	
+	font-weight: normal;
+	font-size: 24px;
+}
+
+
+/* from https://www.andersriggelsen.dk/nonlinear/, modified to have margin-left and margin-right */
+@media only screen and (max-width: 700px) {
+	.box {
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+@media only screen and (min-width: 701px) and (max-width: 812px) {
+	.box{
+		width: calc(96.42% + 25px);
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+@media only screen and (min-width: 813px) and (max-width: 918px) {
+	.box{
+		width: calc(89.62% + 80px);
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+@media only screen and (min-width: 919px) and (max-width: 1019px) {
+	.box{
+		width: calc(85.14% + 121px);
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+@media only screen and (min-width: 1020px) and (max-width: 1114px) {
+	.box{
+		width: calc(78.94% + 184px);
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+@media only screen and (min-width: 1115px) and (max-width: 1205px) {
+	.box{
+		width: calc(72.52% + 256px);
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+@media only screen and (min-width: 1206px) and (max-width: 1290px) {
+	.box{
+		width: calc(67.05% + 321px);
+		margin-left: auto;
+		margin-right: auto;
+	}
+ }
+@media only screen and (min-width: 1291px) and (max-width: 1371px) {
+	.box{
+		width: calc(59.25% + 422px);
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+@media only screen and (min-width: 1372px) and (max-width: 1448px) {
+	.box{
+		width: calc(53.24% + 504px);
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+@media only screen and (min-width: 1449px) and (max-width: 1520px) {
+	.box{
+		width: calc(47.22% + 592px);
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+@media only screen and (min-width: 1521px) and (max-width: 1588px) {
+	.box{
+		width: calc(41.17% + 684px);
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+@media only screen and (min-width: 1589px) and (max-width: 1652px) {
+	.box{
+		width: calc(32.81% + 816px);
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+@media only screen and (min-width: 1653px) and (max-width: 1713px) {
+	.box{
+		width: calc(27.86% + 898px);
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+@media only screen and (min-width: 1714px) and (max-width: 1770px) {
+	.box{
+		width: calc(19.29% + 1045px);
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+@media only screen and (min-width: 1771px) and (max-width: 1823px) {
+	.box{
+		width: calc(15.09% + 1119px);
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+@media only screen and (min-width: 1824px) and (max-width: 1873px) {
+	.box{
+		width: calc(8% + 1249px);
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+@media only screen and (min-width: 1874px) and (max-width: 1920px) {
+	.box{
+		width: calc(2.12% + 1359px);
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
