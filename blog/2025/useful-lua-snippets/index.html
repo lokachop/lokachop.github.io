@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Lokachop's Website</title>
+
+		<!-- Inter font -->
+		<link rel="preconnect" href="https://rsms.me/">
+		<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
+		<!-- Style -->
+		<link href="/style.css" rel="stylesheet" type="text/css" media="all">
+
+		<!-- Favicon -->
+		<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+		<!-- Prism (Syntax Highlighter) -->
+		<link href="/lib/prism/prism.css" rel="stylesheet" />
+	</head>
+
+
+	<body>
+		<div class="navbar">
+			<a href="/index.html">Index</a>
+			<a href="/about.html">About</a>
+			<a href="/projects.html">Projects</a>
+			<a href="/blog.html" class="active">Blog</a>
+		</div>
+	
+		<div class="box">
+			<div class="blogtitlecard">
+				<span>Useful Lua Snippets</span>
+				<br>
+				<span class="releasedate"><time datetime="03-05-2025 12:00:00">03/05/2025</time></span>
+				<br>
+			</div>
+			<hr style="height: 16px; visibility: hidden;">
+			<hr>
+
+			<div>
+				<p>
+				Here's a bunch of useful Lua snippets I keep always needing, so I decided to put them here!<br>
+				I'll also probably make a sequel to this the moment I need more snippets
+				</p>
+		
+
+				<h1>General Lua:</h1>
+				<hr>
+
+				<ul class="coolerul">
+					<h3>Lerp</h3>
+<pre style="font-size: 16px;" class="line-numbers"><code class="language-lua">function Lerp(t, a, b)
+	return a * (1 - t) + b * t
+end</code></pre>
+				</ul>
+
+				<ul class="coolerul">
+					<h3>Pixel grid loop</h3>
+<pre style="font-size: 16px;" class="line-numbers"><code class="language-lua">local w = 32
+local h = 32
+for i = 0, (w * h) do
+	local xc = i % w
+	local yc = math.floor(i / w)
+	
+	-- do stuff
+end</code></pre>
+				</ul>
+
+
+				<ul class="coolerul">
+					<h3>Push/Pop Stack</h3>
+<pre style="font-size: 16px;" class="line-numbers"><code class="language-lua">local stack = {}
+local currStack = nil
+local currStackIdx = 0
+
+local function pushToStack(var)
+	currStackIdx = currStackIdx + 1
+
+	stack[currStackIdx] = currStack
+	currStack = var
+end
+
+local function popFromStack()
+	currStack = stack[currStackIdx]
+
+	-- uncomment for cleanup
+	-- stack[currStackIdx] = nil
+
+	currStackIdx = currStackIdx - 1
+end
+
+local function getActiveFromStack()
+	return currStack
+end</code></pre>
+				</ul>
+			
+
+				<ul class="coolerul">
+					<h3>Rotate a point, then translate</h3>
+<pre style="font-size: 16px;" class="line-numbers"><code class="language-lua">local function rotatePoint(x, y, cX, cY, a)
+	local angRad = math.rad(a)
+
+	nX = x * math.cos(angRad) - y * math.sin(angRad) + cX
+	nY = x * math.sin(angRad) + y * math.cos(angRad) + cY
+
+	return nX, nY
+end
+</code></pre>
+				</ul>
+
+
+				<ul class="coolerul">
+					<h3>Get calling script path</h3>
+<pre style="font-size: 16px;" class="line-numbers"><code class="language-lua">-- from some forum post
+function GetCallingScriptPath()
+	local str = debug.getinfo(2, "S").source:sub(2)
+	return str:match("(.*/)")
+end</code></pre>
+				</ul>
+
+
+				<h1>GMod specific ones:</h1>
+				<hr>
+
+				<ul class="coolerul">
+					<h3>RT & Material pair</h3>
+<pre style="font-size: 16px;" class="line-numbers"><code class="language-lua">local w = 64
+local h = 64
+local rt = GetRenderTarget("rt_name_rt", w, h)
+local mat = CreateMaterial("rt_name_mat", "UnlitGeneric", {
+	["$basetexture"] = rt:GetName(),
+	["$vertexcolor"] = 1,
+})</code></pre>
+				</ul>
+		
+				<ul class="coolerul">
+					<h3>Render 2D to a RenderTarget</h3>
+<pre style="font-size: 16px;" class="line-numbers"><code class="language-lua">local filterMode = TEXFILTER.POINT
+
+function RenderOnRT(rt, func)
+	local ow, oh = ScrW(), ScrH()
+	render.SetViewPort(0, 0, rt:Width(), rt:Height())
+	render.PushRenderTarget(rt)
+	cam.Start2D()
+	render.PushFilterMag(filterMode)
+	render.PushFilterMin(filterMode)
+	if system.IsLinux() then -- native Linux build fucks up transparency, this is a hack that semi-fixes it?
+		render.OverrideAlphaWriteEnable(false, false)
+	else
+		render.OverrideAlphaWriteEnable(true, true)
+	end
+		local fine, ret = pcall(func)
+		if not fine then
+			ErrorNoHaltWithStack(ret)
+		end
+	render.OverrideAlphaWriteEnable(false)
+	render.PopFilterMag()
+	render.PopFilterMin()
+	cam.End2D()
+	render.PopRenderTarget()
+	render.SetViewPort(0, 0, ow, oh)
+end</code></pre>
+				</ul>
+
+				<ul class="coolerul">
+					<h3>Pixel function to a RT (depends on previous snippet!)</h3>
+<pre style="font-size: 16px;" class="line-numbers"><code class="language-lua">-- pixelfunc render
+function PixelFuncOnRT(rt, func)
+	RenderOnRT(rt, function()
+		local oW, oH = ScrW(), ScrH()
+		for i = 0, (oW * oH) -1 do
+			local xc = i % oW
+			local yc = math_floor(i / oW)
+
+			local fine, r, g, b, a = pcall(func, xc, yc)
+			if not fine then
+				continue
+			end
+
+			render.SetViewPort(xc, yc, 1, 1)
+			render.Clear(r, g, b, a or 255)
+		end
+		render.SetViewPort(0, 0, oW, oH)
+	end)
+end
+</code></pre>
+				</ul>
+
+				<ul class="coolerul">
+					<h3>Offset direction based on EyeAngles</h3>
+<pre style="font-size: 16px;" class="line-numbers"><code class="language-lua">local eyeAng  = LocalPlayer():EyeAngles()
+local forward = eyeAng:Forward()
+local right   = eyeAng:Right()
+local up      = eyeAng:Up()
+
+
+local offsetLeftRight = (math.random() - .5) * 2
+local offsetUpDown = (math.random() - .5) * 2
+local newDir = forward + right + up
+newDir:Normalize()</code></pre>
+				</ul>
+
+				
+			</div>
+		</div>
+
+		<footer include="/template/footer.html" data-type="text/html"></footer>
+		<script src="/lib/include/htmlinclude.js" data-type="text/html"></script>
+		<script src="/lib/prism/prism.js"></script>
+	</body>
+
+</html>
