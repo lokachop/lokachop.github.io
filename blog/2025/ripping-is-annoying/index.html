@@ -42,8 +42,8 @@
 				<p>
 
 Ripping audio from UE5 is a chore in comparison to other games, and for no apparent reason, let's run a process comparison
-<ul>
-	<li><h3>Unity</h3></li>
+	<ul class="coolerul">
+		<h3>Unity</h3>
 		<ol>
 			<li>Download <a href="https://github.com/AssetRipper/AssetRipper">AssetRipper</a></li>
 			<li>Open AssetRipper</li>
@@ -52,45 +52,49 @@ Ripping audio from UE5 is a chore in comparison to other games, and for no appar
 			<li>Select a folder to export to</li>
 			<li>Done!</li>
 		</ol>
+	</ul>
 
-	<li><h3>Godot</h3></li>
-	<ol>
-		<li>Download <a href="https://dmitriysalnikov.itch.io/godot-pck-explorer">Godot PCK Explorer</a></li>
-		<li>Open Godot PCK Explorer</li>
-		<li>Drag the game .exe or game .pck</li>
-		<li>Click Extract -> Extract All</li>
-		<li>Select a folder to export to</li>
-		<li>Done!</li>
-	</ol>
+	<ul class="coolerul">
+		<h3>Godot</h3>
+		<ol>
+			<li>Download <a href="https://dmitriysalnikov.itch.io/godot-pck-explorer">Godot PCK Explorer</a></li>
+			<li>Open Godot PCK Explorer</li>
+			<li>Drag the game .exe or game .pck</li>
+			<li>Click Extract -> Extract All</li>
+			<li>Select a folder to export to</li>
+			<li>Done!</li>
+		</ol>
+	</ul>
 
-	<li><h3>Meanwhile, Unreal Engine 5+</h3></li>
-	<ol>
-		<li>Download <a href="https://fmodel.app/">FModel</a></li>
-		<li>Open FModel</li>
-		<li>Click Directory -> Selector</li>
-		<li>Be lucky and have your game preconfigured, otherwise click Add Undetected Game, Give it a name and the game path</li>
+	<ul class="coolerul">
+		<h3>Meanwhile, Unreal Engine 5+</h3>
+		<ol>
+			<li>Download <a href="https://fmodel.app/">FModel</a></li>
+			<li>Open FModel</li>
+			<li>Click Directory -> Selector</li>
+			<li>Be lucky and have your game preconfigured, otherwise click Add Undetected Game, Give it a name and the game path</li>
 
-		<li>Pray it guesses the UE version otherwise somehow figure out the version of UE5 the game is using, and set it on UE Versions</li>
-		It is very likely the game is encrypted, so we have to obtain the AES encryption key
-		<li>Be lucky and get the key by googling the name of your game, otherwise use one of the many <i class="smallitalic">sketchy</i> tools to extract it</li>
-		<li>We now need to obtain the mappings, which FModel seems to need to be able to rip anything, Download <a href="https://github.com/Encryqed/Dumper-7">Dumper-7</a></li>
-		<li>Open up your game, and inject Dumper-7 with your favourite injector</li>
-		<li>Go to FModel, Settings -> Mapping File Patch and select the mapping file which Dumper-7 generated <i class="smallitalic">defaults to C:/Dumper-7/</i></li>
-		<li>We can finally start ripping, select the .utoc file on Archives</li>
-		<li>Go to folders, GameName, Audio, and open a folder to find sounds to rip</li>
-		<li>Go to packages and select the ones you want to rip</li>
-		<li>Right click -> Extract in New Tab</li>
-		<li>On the window that opens, right click the file list and click Save Playlist</li>
-		<li>Find where the files get exported to by clicking on the console output</li>
-		<li>You will get .binka files, Convert them to .wav using a sketchy program from some random GitHub thread, that also needed UE5 source code to compile</li>
-		<li>Realize the program emits broken .wav files and write a python ffmpeg handler to repair them</li>
-		<li>Done!</li>
-	</ol>
+			<li>Pray it guesses the UE version otherwise somehow figure out the version of UE5 the game is using, and set it on UE Versions</li>
+			<strong>It is very likely that the game is encrypted, so we have to obtain the AES encryption key</strong>
+			<li>Be lucky and get the key by googling the name of your game, otherwise use one of the many <i class="smallitalic">sketchy</i> tools to extract it</li>
+			<li>We now need to obtain the mappings, which FModel seems to need to be able to rip anything, Download <a href="https://github.com/Encryqed/Dumper-7">Dumper-7</a></li>
+			<li>Open up your game, and inject Dumper-7 with your favourite injector</li>
+			<li>Go to FModel, Settings -> Mapping File Patch and select the mapping file which Dumper-7 generated <i class="smallitalic">defaults to C:/Dumper-7/</i></li>
+			<li>We can finally start ripping, select the .utoc file on Archives</li>
+			<li>Go to folders, GameName, Audio, and open a folder to find sounds to rip</li>
+			<li>Go to packages and select the ones you want to rip</li>
+			<li>Right click -> Extract in New Tab</li>
+			<li>On the window that opens, right click the file list and click Save Playlist</li>
+			<li>Find where the files get exported to by clicking on the console output</li>
+			<li>You will get .binka files, Convert them to .wav using a sketchy program from some random GitHub thread, that also needed UE5 source code to compile</li>
+			<li>Realize the program emits broken .wav files and write a python ffmpeg handler to repair them</li>
+			<li>Done!</li>
+		</ol>
+	</ul>
 
 
 	<h1>WHY?!</h1>
 	<p></p>
-</ul>
 
 
 

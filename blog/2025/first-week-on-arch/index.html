@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Lokachop's Website</title>
+
+		<!-- Inter font -->
+		<link rel="preconnect" href="https://rsms.me/">
+		<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
+		<!-- Style -->
+		<link href="/style.css" rel="stylesheet" type="text/css" media="all">
+
+		<style>
+			.coolerul {
+				list-style-type: square;
+			}
+
+			code {
+				color: rgb(196, 255, 196);
+			}
+		</style>
+
+		<!-- Favicon -->
+		<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+		<!-- Prism (Syntax Highlighter) -->
+		<link href="/lib/prism/prism.css" rel="stylesheet" />
+	</head>
+
+
+	<body>
+		<div class="navbar">
+			<a href="/index.html">Index</a>
+			<a href="/about.html">About</a>
+			<a href="/projects.html">Projects</a>
+			<a href="/blog.html" class="active">Blog</a>
+		</div>
+	
+		<div class="box">
+			<div class="blogtitlecard">
+				<span>First Week on Arch Linux</span>
+				<br>
+				<span class="releasedate"><time datetime="02-05-2025 12:00:00">02/05/2025</time></span>
+				<br>
+			</div>
+			<hr style="height: 16px; visibility: hidden;">
+			<hr>
+
+			<div>
+				<p>
+				A week ago, I finally decided to move to Linux, since I've been planning to since I got my new computer around 2 years ago, here's my overall thoughts and experience with it
+				</p>
+
+				<p>
+				I was originally planning to use <a href="https://www.debian.org/">Debian 12</a> for my OS, but due to some weird GPU driver issues, I ended up switching to <a href="https://archlinux.org/">Arch Linux</a><br>
+				I now know that the driver issues were caused by using the <code>nvidia-open</code> drivers instead of the <code>nvidia</code> drivers...<br>
+				The lesson of the story is, don't buy NVidia if you plan to use Linux!
+				</p>
+
+				<ul class="coolerul">
+					<h3>Installation</h3>
+					<li>I used archinstall, because I can't be asked to follow the ten-thousand steps to set up the OS while I could just follow a nice TermUI</li>
+					<li>I set up a separate partition on a separate drive for my <code>/home</code> folder, in case I ever want to distro hop to something else</li>
+					<li>For the DE, I decided to go with KDE Plasma, since I've practically always used it <i class="smallitalic"> even back in school!</i> and because it feels the closest to Windows</li>
+					<li>I initially used the <code>nvidia-open</code> drivers, but later ended up using the <code>nvidia</code> drivers due to issues I'll mention later on</li>
+				</ul>
+
+				<ul class="coolerul">
+					<h3>Initial Issues</h3>
+					<li>After first installing and properly booting, I had random freezing every minute or so, although audio kept playing<br>
+					I'm not too certain as to how I solved it or why it kept happening, but I assume it was something GPU-driver related<br>
+					<i class="smallitalic">probably caused by <code>nvidia-open</code>!</i>, as it stopped when I installed the <code>nvidia</code> drivers instead</li>
+
+					<li>Vulkan support was completely broken on the <code>nvidia-open</code> drivers, which lead to games running under proton crashing near instantly<br>
+					and to horrible graphical artifacts when running under OpenGL</li>
+
+					<li>As soon as I installed the <code>nvidia</code> drivers, my primary display would stay off unless it's refresh rate was capped under 120<br>
+					I fixed this via switching out the cable from HDMI to DisplayPort <i class="smallitalic">which funnily enough, was giving me issues on Windows!</i></li>
+
+					<li>My second monitor would freeze on the same frame until I reconnected it very rarely <i class="smallitalic">it only happened once while playing AnIV</i><br>
+					I still don't know why it happened, and it has not happened ever since</li>
+				</ul>
+
+				<ul class="coolerul">
+					<h3>Stuff I Miss</h3>
+					<li>Holding down MMB to scroll with the mouse, thankfully, Firefox has support for it! <i class="smallitalic">just enable autoscroll in settings</i></li>
+					
+					<li><a href="https://getsharex.com/">ShareX</a>, there are very good alternatives but I mostly miss the other tools ShareX provided, like screen colour picking and GIF recording</li>
+					
+					<li>Random Windows-only tools like Wavosaur, Thankfully, this isn't a problem thanks to <a href="https://www.winehq.org/">wine!</a></li>
+					
+					<li>One or two games that used bad anticheat solutions that don't support Linux <i class="smallitalic">(GTA V Online)</i></li>
+				</ul>
+
+				<ul class="coolerul">
+					<h3>Stuff I Find Better</h3>
+					<li>Memory usage, you compare it to Windows and the difference is absurd!<br>
+					At the moment of writing this, I have Discord, Firefox, VSCodium, npx http-server and Steam open, and it's only using 6GiB!<br>
+					Meanwhile, my old Windows install would idle at 8GiB+</li>
+		
+					<li>The package manager, the fact that Windows doesn't have anything similar is pretty sad, it is one command to get most if not all programs!<br>
+					I guess the only confusing part of it is the divide of AUR packages and normal <code>pacman</code> packages</li>
+			
+					<li>Updates are simpler to install, and you're not forced to install them until you ACTUALLY want them</li>
+
+					<li>Building programs is way simpler and less of a nightmare than on Windows</li>
+
+					<li>The shell doesn't feel like an afterthought, it actually feels nice to use, more so if you use a custom shell like <a href="https://fishshell.com/">fish</a>!</li>
+				</ul>
+
+				<ul class="coolerul">
+					<h3>Stuff That Surprised Me</h3>
+					<li>Most if not all games that I play work without any sort of hard work to set up!<br>
+					I would personally say the best candidates are <a href="https://spacestation14.com/">Space Station 14</a> and Minecraft<br>
+					Proton also contributes A LOT to this, making 99% of Windows-only games work perfectly!</li>
+					
+					<li>The amount of guides and tutorials is surprising, I was expecting finding help very hard!</li>
+
+					<li>99% of the software I already was using is here too!</li>
+				</ul>
+
+				<ul class="coolerul">
+					<h3>Afterthoughts</h3>
+					Even if the process has been bumpy, i'm still really thankful to be off Windows now, it is something I have always been meaning to do but<br>
+					never really got to due to fearing data loss, thankfully thanks to a recently obtained NAS that is no longer a concern!<br>
+					I'm also really happy to see more developers taking Linux support seriously thanks to the Steam Deck, specially Valve!<br>
+					<br>
+					<i class="smallitalic">and here's the mandatory neofetch</i><br>
+					<img src="./screenies/neofetch.png" alt="The neofetch command on the fish shell">
+				</ul>
+			</div>
+		</div>
+
+
+
+		<footer include="/template/footer.html" data-type="text/html"></footer>
+		<script src="/lib/include/htmlinclude.js" data-type="text/html"></script>
+		<script src="/lib/prism/prism.js"></script>
+	</body>
+
+</html>
