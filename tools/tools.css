@@ -1,0 +1,40 @@
+.toolscard {
+	background-color: rgb(55, 55, 55);
+	width: 1024px;
+	height: 104px;
+
+	margin: 0 auto;
+
+	margin-bottom: 16px;
+}
+
+.toolscard img {
+	float: left;
+	width: 128px;
+	height: 128px;
+	margin-right: 16px;
+}
+
+.toolscard p {
+	padding-left: 16px;
+	padding-top: 16px;
+}
+
+.toolscard .header {
+	color: rgb(255, 255, 255);
+	
+	font-weight: bold;
+	font-size: 36px;
+}
+
+.toolscard .subtext {
+	color: rgb(160, 160, 160);
+	font-size: 20px;
+}
+
+.toolscard .releasedate {
+	color: rgb(120, 120, 120);
+	
+	font-weight: normal;
+	font-size: 16px;
+}

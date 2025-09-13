@@ -142,43 +142,6 @@ footer a {
 }
 
 
-
-
-.projectcard {
-	background-color: rgb(55, 55, 55);
-	width: 1024px;
-	height: 160px;
-
-	margin: 0 auto;
-
-	margin-bottom: 16px;
-}
-
-.projectcard img {
-	float: left;
-	width: 128px;
-	height: 128px;
-	margin-right: 16px;
-}
-
-.projectcard p {
-	padding-left: 16px;
-	padding-top: 16px;
-}
-
-.projectcard .header {
-	color: rgb(255, 255, 255);
-	
-	font-weight: bold;
-	font-size: 36px;
-}
-
-.projectcard .subtext {
-	color: rgb(160, 160, 160);
-	font-size: 20px;
-}
-
-
 .projecttitlecard {
 	padding-left: 16px;
 	padding-top: 16px;
@@ -216,50 +179,6 @@ footer a {
 	padding: 8px;
 }
 
-
-
-.blogcard {
-	background-color: rgb(55, 55, 55);
-	width: 1024px;
-	height: 128px;
-
-	margin: 0 auto;
-
-	margin-bottom: 16px;
-}
-
-.blogcard img {
-	float: left;
-	width: 128px;
-	height: 128px;
-	margin-right: 16px;
-}
-
-.blogcard p {
-	padding-left: 16px;
-	padding-top: 16px;
-}
-
-.blogcard .header {
-	color: rgb(255, 255, 255);
-	
-	font-weight: bold;
-	font-size: 36px;
-}
-
-.blogcard .subtext {
-	color: rgb(160, 160, 160);
-	font-size: 20px;
-}
-
-.blogcard .releasedate {
-	color: rgb(120, 120, 120);
-	
-	font-weight: normal;
-	font-size: 16px;
-}
-
-
 .blogtitlecard {
 	padding-top: 16px;
 }
@@ -273,7 +192,6 @@ footer a {
 	
 	font-weight: bold;
 	font-size: 36px;
-	margin-left: 16px;
 }
 
 .blogtitlecard .releasedate {
@@ -282,6 +200,31 @@ footer a {
 	font-weight: normal;
 	font-size: 24px;
 }
+
+.tooltitlecard {
+	padding-top: 16px;
+}
+
+.tooltitlecard span {
+	color: rgb(255, 255, 255);
+	
+	font-weight: bold;
+	font-size: 36px;
+}
+
+.tooltitlecard .desc {
+	color: rgb(160, 160, 160);
+	font-weight: normal;
+	font-size: 24px;
+}
+
+.tooltitlecard .creditstext {
+	color: rgb(120, 120, 120);
+	
+	font-weight: normal;
+	font-size: 16px;
+}
+
 
 /* highly inspired if not a clone of the anecdote blocks from https://slugcat.systems/ */
 /* trans rights! */

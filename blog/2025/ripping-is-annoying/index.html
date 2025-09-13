@@ -3,6 +3,8 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta property="pagetype" content="blog">
+
 		<title>Lokachop's Website</title>
 
 		<!-- Inter font -->
@@ -21,12 +23,7 @@
 
 
 	<body>
-		<div class="navbar">
-			<a href="/index.html">Index</a>
-			<a href="/about.html">About</a>
-			<a href="/projects.html">Projects</a>
-			<a href="/blog.html" class="active">Blog</a>
-		</div>
+		<script src="/lib/navbar/navbar-setup.js?src=/template/navbar.html" class="navbar" id="navbar"></script>
 	
 		<div class="box">
 			<div class="blogtitlecard">
@@ -102,10 +99,7 @@ Ripping audio from UE5 is a chore in comparison to other games, and for no appar
 			</div>
 		</div>
 
-
-
-		<footer include="/template/footer.html" data-type="text/html"></footer>
-		<script src="/lib/include/htmlinclude.js" data-type="text/html"></script>
+		<script src="/lib/include/newinc.js?src=/template/footer.html"></script>
 		<script src="/lib/prism/prism.js"></script>
 	</body>
 
